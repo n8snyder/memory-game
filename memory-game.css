@@ -15,18 +15,18 @@ button {
   color: white;
   background-color: rgb(55, 196, 55);
   font-size: 16px;
-  display: inline-block;
+  display: block;
   margin: 4px 2px;
   padding: 15px 32px;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #startButton {
   display: block;
   font-size: 26px;
   padding: 24px 52px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 20%;
 }
 

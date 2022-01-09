@@ -18,21 +18,49 @@ function initializeGame() {
   createStartButton();
 }
 
+function startGame() {
+  colors = shuffle(COLORS);
+  createCards(colors);
+  createResetButton();
+}
+
+function resetGame() {
+  const gameBoard = document.getElementById("game");
+  while (gameBoard.firstChild) {
+    gameBoard.removeChild(gameBoard.firstChild);
+  }
+  colors = []
+  guesses = [];
+  matches = [];
+  startGame();
+}
+
+function removeThing(ele) {
+  ele.remove();
+}
+
 function createStartButton() {
   const gameBoard = document.getElementById("game");
   const button = document.createElement("button");
   button.id = "startButton";
   button.textContent = "Start game!";
+  button.addEventListener("click", removeElement);
   button.addEventListener("click", startGame);
   gameBoard.append(button);
 }
 
-function startGame(event) {
-  event.target.remove();
-  colors = shuffle(COLORS);
-  createCards(colors);
+function createResetButton() {
+  const gameBoard = document.getElementById("game");
+  const button = document.createElement("button");
+  button.id = "resetButton";
+  button.textContent = "Restart";
+  button.addEventListener("click", resetGame);
+  gameBoard.append(button);
 }
 
+function removeElement(event) {
+  event.target.remove();
+}
 
 /** Shuffle array items in-place and return shuffled array. */
 
