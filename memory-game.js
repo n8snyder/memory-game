@@ -8,12 +8,30 @@ const COLORS = [
   "red", "blue", "green", "orange", "purple",
 ];
 
-const colors = shuffle(COLORS);
-
+let colors = []
 let guesses = [];
 let matches = [];
 
-createCards(colors);
+initializeGame();
+
+function initializeGame() {
+  createStartButton();
+}
+
+function createStartButton() {
+  const gameBoard = document.getElementById("game");
+  const button = document.createElement("button");
+  button.id = "startButton";
+  button.textContent = "Start game!";
+  button.addEventListener("click", startGame);
+  gameBoard.append(button);
+}
+
+function startGame(event) {
+  event.target.remove();
+  colors = shuffle(COLORS);
+  createCards(colors);
+}
 
 
 /** Shuffle array items in-place and return shuffled array. */
