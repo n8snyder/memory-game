@@ -116,7 +116,7 @@ function unFlipCard(card) {
 function handleCardClick(evt) {
   let card = evt.target;
   // check if card has been clicked
-  if (card.id in guesses) {
+  if (guesses.includes(card.id)) {
     return;
   }
   // check if card has been matched
